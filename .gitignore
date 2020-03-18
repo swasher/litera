@@ -1,0 +1,23 @@
+# Приватные файлы
+/test
+test_area
+/latest.dump
+/test/
+.env
+NOTES.md
+deprecated-requirements.txt
+
+
+# Файлы, создаваемые приложением
+*.pyc
+*.log
+*.retry
+__pycache__/
+.idea/
+.vagrant/
+.fab_tasks~
+
+
+# Статика
+test/*
+/media

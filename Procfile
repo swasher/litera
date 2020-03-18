@@ -1,0 +1,1 @@
+web: gunicorn kinobase.wsgi --log-file -
