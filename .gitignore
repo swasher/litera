@@ -6,6 +6,7 @@ test_area
 .env
 NOTES.md
 deprecated-requirements.txt
+usefull_resources.md
 
 
 # Файлы, создаваемые приложением
