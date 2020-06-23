@@ -9,6 +9,12 @@ verify_ssl = true
 django = "*"
 fonttools = "*"
 fontmeta = "*"
+psycopg2 = "*"
+python-decouple = "*"
+dj-database-url = "*"
+whitenoise = "*"
+gunicorn = "*"
+django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.8"

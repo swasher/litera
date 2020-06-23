@@ -1,14 +1,32 @@
+import os
 from django.db import models
+from django.conf import settings
 
 
 # Create your models here.
 class Family(models.Model):
     name = models.CharField(max_length=100)
 
+    def save(self, *args, **kwargs):
+        font_dir = os.path.join(settings.MEDIA_ROOT, self.name)
+        if not os.path.exists(font_dir):
+            # TODO self.name must be safe
+            os.mkdir(font_dir)
+        super(Family, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        # see signals.py for dir remove function
+        pass
+
+    class Meta:
+        verbose_name_plural = "Families"
+
+    def __str__(self):
+        return self.name
+
 
 class Font(models.Model):
-    # fontFamily = models.CharField(max_length=150, help_text="Семейство")
-    fontFamily = models.ForeignKey(Family, help_text="Семейство")
+    fontFamily = models.ForeignKey(Family, on_delete=models.CASCADE, help_text="Семейство")
 
     fontSubfamily = models.CharField(max_length=150, help_text="Подсемейство")
     fullName = models.CharField(max_length=150, help_text="Полное название шрифта")

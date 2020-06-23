@@ -22,3 +22,4 @@ __pycache__/
 # Статика
 test/*
 /media
+/upload
